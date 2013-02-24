@@ -1,0 +1,37 @@
+---
+abstract: 'Perl interface to FilmAffinity'
+author:
+  - 'William Belle <william.belle@gmail.com>'
+build_requires:
+  File::Find::Rule: 0
+  Test::MockObject: 0
+  Test::More: 0
+configure_requires:
+  Module::Build: 0.38
+dynamic_config: 1
+generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.112621'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: FilmAffinity-UserRating
+provides:
+  FilmAffinity::UserRating:
+    file: lib/FilmAffinity/UserRating.pm
+    version: 0.01
+  FilmAffinity::Utils:
+    file: lib/FilmAffinity/Utils.pm
+    version: 0
+requires:
+  Encode: 0
+  HTML::TreeBuilder: 0
+  HTML::TreeBuilder::XPath: 0
+  IO::All: 0
+  LWP::RobotUA: 0
+  Moose: 0
+  MooseX::Privacy: 0
+  Text::Trim: 0
+  perl: 5.006
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.01

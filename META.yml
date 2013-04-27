@@ -4,6 +4,7 @@ author:
   - 'William Belle <william.belle@gmail.com>'
 build_requires:
   File::Find::Rule: 0
+  Test::LongString: 0
   Test::MockObject: 0
   Test::More: 0
 configure_requires:
@@ -18,15 +19,16 @@ name: FilmAffinity-UserRating
 provides:
   FilmAffinity::UserRating:
     file: lib/FilmAffinity/UserRating.pm
-    version: 0.01
+    version: 0.03
   FilmAffinity::Utils:
     file: lib/FilmAffinity/Utils.pm
-    version: 0
+    version: 0.03
 requires:
   Encode: 0
   HTML::TreeBuilder: 0
   HTML::TreeBuilder::XPath: 0
   IO::All: 0
+  JSON: 0
   LWP::RobotUA: 0
   Moose: 0
   MooseX::Privacy: 0
@@ -34,4 +36,4 @@ requires:
   perl: 5.006
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.01
+version: 0.03

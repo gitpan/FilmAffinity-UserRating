@@ -7,11 +7,13 @@ WriteMakefile
   'INSTALLDIRS' => 'site',
   'NAME' => 'FilmAffinity::UserRating',
   'EXE_FILES' => [
+                   'bin/filmaffinity-get-movie-info.pl',
                    'bin/filmaffinity-get-ratings.pl'
                  ],
   'VERSION_FROM' => 'lib/FilmAffinity/UserRating.pm',
   'PREREQ_PM' => {
                    'Test::MockObject' => 0,
+                   'Test::LongString' => 0,
                    'IO::All' => 0,
                    'HTML::TreeBuilder::XPath' => 0,
                    'File::Find::Rule' => 0,
@@ -21,6 +23,7 @@ WriteMakefile
                    'Encode' => 0,
                    'Test::More' => 0,
                    'MooseX::Privacy' => 0,
+                   'JSON' => 0,
                    'Moose' => 0
                  }
 )

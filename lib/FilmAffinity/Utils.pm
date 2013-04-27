@@ -3,16 +3,24 @@ package FilmAffinity::Utils;
 use strict;
 use warnings;
 
+use LWP::RobotUA;
+
 =head1 NAME - FilmAffinity::Utils
 
 Utils for FilmAffinity
 
+=head1 VERSION
+
+Version 0.03
+
 =cut
+
+our $VERSION = 0.03;
 
 require Exporter;
 
 our @ISA    = qw/Exporter/;
-our @EXPORT = qw/demoronize/;
+our @EXPORT = qw/demoronize buildRobot/;
 
 =head1 EXPORT
 
@@ -51,6 +59,23 @@ sub demoronize {
   }
   
   return $str;
+}
+
+=head2 buildRobot
+
+Returns a LWP::RobotUA for web requests
+
+=cut
+
+sub buildRobot {
+  my ($delay) = shift;
+  
+  my $ua = LWP::RobotUA->new("FilmAffinity-Bot/$VERSION", 'me@foo.com');
+  $ua->timeout(60);
+  $ua->env_proxy;  
+  $ua->delay($delay/60); 
+  
+  return $ua; 
 }
 
 =head1 AUTHOR

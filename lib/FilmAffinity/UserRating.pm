@@ -21,11 +21,11 @@ FilmAffinity::UserRating - Perl interface to FilmAffinity
 
 =head1 VERSION
 
-Version 0.01
+Version 0.03
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.03';
 
 =head1 SYNOPSIS
 
@@ -37,7 +37,7 @@ Get filmaffinity voted movies from a user
     
     my $ref_movies = $parser->parse();
     
-Via the command-line program L<filmaffinity-get-ratings.pl>:
+Via the command-line program filmaffinity-get-ratings.pl
     
 =head1 DESCRIPTION
 
@@ -124,14 +124,9 @@ my $RATING_URL = 'http://www.filmaffinity.com/en/userratings.php?orderby=2&';
 
 sub BUILD {
   my ($self, $args) = @_;
-  
-  my $delay = $args->{delay} || 5;
-  
-  $self->ua( LWP::RobotUA->new("FilmAffinity-Bot/$VERSION", 'me@foo.com') );
-  $self->ua->timeout(60);
-  $self->ua->env_proxy;  
-  $self->ua->delay($delay/60);
-}
+
+  $self->ua( buildRobot( $args->{delay} || 5 ) );
+} 
    
 =head1 METHODS   
       

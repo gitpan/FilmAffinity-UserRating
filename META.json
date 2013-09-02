@@ -43,13 +43,17 @@
       }
    },
    "provides" : {
+      "FilmAffinity::Movie" : {
+         "file" : "lib/FilmAffinity/Movie.pm",
+         "version" : "0.04"
+      },
       "FilmAffinity::UserRating" : {
          "file" : "lib/FilmAffinity/UserRating.pm",
-         "version" : "0.03"
+         "version" : "0.04"
       },
       "FilmAffinity::Utils" : {
          "file" : "lib/FilmAffinity/Utils.pm",
-         "version" : "0.03"
+         "version" : "0.04"
       }
    },
    "release_status" : "stable",
@@ -58,5 +62,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.03"
+   "version" : "0.04"
 }

@@ -7,28 +7,27 @@ use Getopt::Long;
 use Pod::Usage;
 
 use IO::All -utf8;
-use FilmAffinity::Utils;
-use FilmAffinity::UserRating;
+use FilmAffinity::Movie;
 
-=head1 NAME - filmaffinity-get-ratings.pl
+=head1 NAME - filmaffinity-get-movie-info.pl
 
-get ratings from filmaffinity for a user print them in Tab-separated values
+get information from filmaffinity about a film and print them in JSON formt
 
 =head1 SYNOPSIS
 
-  ./filmaffinity-get-rating.pl --userid=123456
+  ./filmaffinity-get-movie-info.pl --id=123456
   
-  ./filmaffinity-get-rating.pl --userid=123456 --delay=2
+  ./filmaffinity-get-movie-info.pl --id=123456 --delay=2
   
-  ./filmaffinity-get-rating.pl --userid=123456 --output=/home/william/myvote.list
+  ./filmaffinity-get-movie-info.pl --id=932476 --output=/home/william/matrix.json
 
 =head1 ARGUMENTS
 
 =over 2
 
-=item --userid=192076
+=item --id=932476
 
-userid from filmaffinity
+movie id from filmaffinity
 
 =back
 
@@ -40,40 +39,38 @@ userid from filmaffinity
 
 delay between requests
 
-=item --output=/home/william/rating.list
+=item --output=/home/william/matrix.json
 
-output file
+output json file
 
 =back
 
 =cut
 
-my ( $userID, $delay, $output, $help );
+my ( $movieID, $delay, $output, $help );
 
 GetOptions(
-  "userid=i" => \$userID,
+  "id=i"     => \$movieID,
   "delay=i"  => \$delay,
   "output=s" => \$output,
   "help"     => \$help,
 ) 
 || pod2usage(2);
 
-if ( $help || !$userID ) {
+if ( $help || !$movieID ) {
   pod2usage(1);
   exit(0);
 }
 
-my $userParser = FilmAffinity::UserRating->new( 
-  userID => $userID,
-  delay  => $delay || 5,
+my $movie = FilmAffinity::Movie->new( 
+  id    => $movieID,
+  delay => $delay || 5,
 );
 
-my $ref_movies = $userParser->parse();
+$movie->parse();
 
-my $tsv = data2tsv( $ref_movies );
-
-$output ? $tsv > io($output) : print $tsv;
-  
+my $json = $movie->toJSON();
+$output ? $json > io($output) : print $json;
 
 =head1 AUTHOR
 

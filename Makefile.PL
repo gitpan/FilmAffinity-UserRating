@@ -7,6 +7,7 @@ WriteMakefile
   'INSTALLDIRS' => 'site',
   'NAME' => 'FilmAffinity::UserRating',
   'EXE_FILES' => [
+                   'bin/filmaffinity-get-all-info.pl',
                    'bin/filmaffinity-get-movie-info.pl',
                    'bin/filmaffinity-get-ratings.pl'
                  ],

@@ -11,16 +11,16 @@ Utils for FilmAffinity
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
-our $VERSION = 0.03;
+our $VERSION = 0.04;
 
 require Exporter;
 
 our @ISA    = qw/Exporter/;
-our @EXPORT = qw/demoronize buildRobot/;
+our @EXPORT = qw/demoronize buildRobot data2tsv/;
 
 =head1 EXPORT
 
@@ -36,21 +36,21 @@ sub demoronize {
   my $str = shift;
 
   return $str unless defined $str;
-  
+
   my $demoronizeReplaceMap = {
-    '\x{201A}' => ',',          # 82, SINGLE LOW-9 QUOTATION MARK
-    '\x{201E}' => ',,',         # 84, DOUBLE LOW-9 QUOTATION MARK
-    '\x{2026}' => '...',        # 85, HORIZONTAL ELLIPSIS
-    '\x{02C6}' => '^',          # 88, MODIFIER LETTER CIRCUMFLEX ACCENT
-    '\x{2018}' => '`',          # 91, LEFT SINGLE QUOTATION MARK
-    '\x{2019}' => "'",          # 92, RIGHT SINGLE QUOTATION MARK
-    '\x{201C}' => '"',          # 93, LEFT DOUBLE QUOTATION MARK
-    '\x{201D}' => '"',          # 94, RIGHT DOUBLE QUOTATION MARK
-    '\x{2022}' => '*',          # 95, BULLET
-    '\x{2013}' => '-',          # 96, EN DASH
-    '\x{2014}' => '-',          # 97, EM DASH
-    '\x{2039}' => '<',          # 8B, SINGLE LEFT-POINTING ANGLE QUOTATION MARK
-    '\x{203A}' => '>',          # 9B, SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
+    '\x{201A}|\x82'   => ',',   # 82, SINGLE LOW-9 QUOTATION MARK
+    '\x{201E}|\x84'   => ',,',  # 84, DOUBLE LOW-9 QUOTATION MARK
+    '\x{2026}|\x85'   => '...', # 85, HORIZONTAL ELLIPSIS
+    '\x{02C6}|\x88'   => '^',   # 88, MODIFIER LETTER CIRCUMFLEX ACCENT
+    '\x{2018}|\x91'   => '`',   # 91, LEFT SINGLE QUOTATION MARK
+    '\x{2019}|\x92'   => "'",   # 92, RIGHT SINGLE QUOTATION MARK
+    '\x{201C}|\x93'   => '"',   # 93, LEFT DOUBLE QUOTATION MARK
+    '\x{201D}|\x94'   => '"',   # 94, RIGHT DOUBLE QUOTATION MARK
+    '\x{2022}|\x95|•' => '*',   # 95, BULLET
+    '\x{2013}|\x96'   => '-',   # 96, EN DASH
+    '\x{2014}|\x97'   => '-',   # 97, EM DASH
+    '\x{2039}|\x8B'   => '<',   # 8B, SINGLE LEFT-POINTING ANGLE QUOTATION MARK
+    '\x{203A}|\x9B'   => '>',   # 9B, SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
   };
   
   foreach my $replace ( keys( %{$demoronizeReplaceMap} ) ) {
@@ -76,6 +76,32 @@ sub buildRobot {
   $ua->delay($delay/60); 
   
   return $ua; 
+}
+
+=head2 data2tsv
+
+Transform FilmAffinity::UserRating in tab separated value
+
+Returns a tsv string
+
+=cut
+
+sub data2tsv {
+  my ( $data ) = shift;
+  
+  my $tsvString;
+  foreach my $mov ( sort { p_sortByRatings($data) } keys %{$data}){
+    $tsvString .= $mov ."\t" . 
+                  $data->{$mov}{'title'} . "\t" . 
+                  $data->{$mov}{'rating'}."\n"; 
+  }
+  
+  return $tsvString; 
+}
+
+sub p_sortByRatings {
+  my ($ref_movies) = @_;  
+  return $ref_movies->{$b}{'rating'} <=> $ref_movies->{$a}{'rating'};
 }
 
 =head1 AUTHOR

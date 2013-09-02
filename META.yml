@@ -17,12 +17,15 @@ meta-spec:
   version: 1.4
 name: FilmAffinity-UserRating
 provides:
+  FilmAffinity::Movie:
+    file: lib/FilmAffinity/Movie.pm
+    version: 0.04
   FilmAffinity::UserRating:
     file: lib/FilmAffinity/UserRating.pm
-    version: 0.03
+    version: 0.04
   FilmAffinity::Utils:
     file: lib/FilmAffinity/Utils.pm
-    version: 0.03
+    version: 0.04
 requires:
   Encode: 0
   HTML::TreeBuilder: 0
@@ -36,4 +39,4 @@ requires:
   perl: 5.006
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.03
+version: 0.04

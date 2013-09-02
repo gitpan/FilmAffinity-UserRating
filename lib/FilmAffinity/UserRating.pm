@@ -21,11 +21,11 @@ FilmAffinity::UserRating - Perl interface to FilmAffinity
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 =head1 SYNOPSIS
 
@@ -169,11 +169,11 @@ a single string in memory.
 sub parseString {
   my ($self, $content) = @_;
   
-  $content = decode('cp1252', $content);
+  $content = decode('iso8859-1', $content);
  
   my $tree = HTML::TreeBuilder->new();
   $tree->parse($content);    
-  $self->p_username($tree->findvalue( '//td/div/b' ));
+  $self->p_username($tree->findvalue( '//span[@id="nick"]/b' ));
      
   my @movieLink = $self->p_findListMovieLink($tree);
   my @ids       = map { $_->attr('href') =~ m/$REGEX_ID/gi ? $1 : undef } @movieLink;
@@ -226,7 +226,7 @@ private_method p_findListRatings => sub {
 private_method p_isNextPage => sub {
   my ($self, $content) = @_; 
   
-  if ($content =~ m/<b>&gt;&gt;<\/b><\/a>/){
+  if ($content =~ m/>&gt;&gt;<\/a><\/div><\/td>/){
     return 1;
   }
   return 0; 

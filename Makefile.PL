@@ -13,19 +13,21 @@ WriteMakefile
                  ],
   'VERSION_FROM' => 'lib/FilmAffinity/UserRating.pm',
   'PREREQ_PM' => {
-                   'Test::MockObject' => 0,
-                   'Test::LongString' => 0,
-                   'IO::All' => 0,
-                   'HTML::TreeBuilder::XPath' => 0,
-                   'File::Find::Rule' => 0,
-                   'LWP::RobotUA' => 0,
-                   'HTML::TreeBuilder' => 0,
-                   'Text::Trim' => 0,
-                   'Encode' => 0,
+                   'IO::All' => '0.59',
+                   'HTML::TreeBuilder' => '5.03',
+                   'Text::Trim' => '1.02',
+                   'Encode' => '2.57',
+                   'MooseX::Privacy' => '0.05',
+                   'List::Compare' => '0.38',
+                   'Moose' => '2.12',
+                   'Test::MockObject' => '1.2',
+                   'Test::LongString' => '0.15',
+                   'HTML::TreeBuilder::XPath' => '0.14',
+                   'File::Find::Rule' => '0.33',
+                   'Test::JSON' => '0.11',
+                   'LWP::RobotUA' => '6.03',
                    'Test::More' => 0,
-                   'MooseX::Privacy' => 0,
-                   'JSON' => 0,
-                   'Moose' => 0
+                   'JSON' => '2.9'
                  }
 )
 ;

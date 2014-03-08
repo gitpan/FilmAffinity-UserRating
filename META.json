@@ -4,7 +4,7 @@
       "William Belle <william.belle@gmail.com>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.112621",
+   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.140640",
    "license" : [
       "perl_5"
    ],
@@ -16,10 +16,11 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "File::Find::Rule" : 0,
-            "Test::LongString" : 0,
-            "Test::MockObject" : 0,
-            "Test::More" : 0
+            "File::Find::Rule" : "0.33",
+            "Test::JSON" : "0.11",
+            "Test::LongString" : "0.15",
+            "Test::MockObject" : "1.2",
+            "Test::More" : "0"
          }
       },
       "configure" : {
@@ -29,15 +30,16 @@
       },
       "runtime" : {
          "requires" : {
-            "Encode" : 0,
-            "HTML::TreeBuilder" : 0,
-            "HTML::TreeBuilder::XPath" : 0,
-            "IO::All" : 0,
-            "JSON" : 0,
-            "LWP::RobotUA" : 0,
-            "Moose" : 0,
-            "MooseX::Privacy" : 0,
-            "Text::Trim" : 0,
+            "Encode" : "2.57",
+            "HTML::TreeBuilder" : "5.03",
+            "HTML::TreeBuilder::XPath" : "0.14",
+            "IO::All" : "0.59",
+            "JSON" : "2.9",
+            "LWP::RobotUA" : "6.03",
+            "List::Compare" : "0.38",
+            "Moose" : "2.12",
+            "MooseX::Privacy" : "0.05",
+            "Text::Trim" : "1.02",
             "perl" : "5.006"
          }
       }
@@ -45,15 +47,15 @@
    "provides" : {
       "FilmAffinity::Movie" : {
          "file" : "lib/FilmAffinity/Movie.pm",
-         "version" : "0.04"
+         "version" : "0.06"
       },
       "FilmAffinity::UserRating" : {
          "file" : "lib/FilmAffinity/UserRating.pm",
-         "version" : "0.04"
+         "version" : "0.06"
       },
       "FilmAffinity::Utils" : {
          "file" : "lib/FilmAffinity/Utils.pm",
-         "version" : "0.04"
+         "version" : "0.06"
       }
    },
    "release_status" : "stable",
@@ -62,5 +64,5 @@
          "http://dev.perl.org/licenses/"
       ]
    },
-   "version" : "0.04"
+   "version" : "0.06"
 }

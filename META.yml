@@ -9,9 +9,9 @@ build_requires:
   Test::MockObject: '1.2'
   Test::More: '0'
 configure_requires:
-  Module::Build: '0.38'
+  Module::Build: '0.42'
 dynamic_config: 1
-generated_by: 'Module::Build version 0.38, CPAN::Meta::Converter version 2.140640'
+generated_by: 'Module::Build version 0.4206, CPAN::Meta::Converter version 2.140640'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -20,25 +20,26 @@ name: FilmAffinity-UserRating
 provides:
   FilmAffinity::Movie:
     file: lib/FilmAffinity/Movie.pm
-    version: '0.06'
+    version: '0.07'
   FilmAffinity::UserRating:
     file: lib/FilmAffinity/UserRating.pm
-    version: '0.06'
+    version: '0.07'
   FilmAffinity::Utils:
     file: lib/FilmAffinity/Utils.pm
-    version: '0.06'
+    version: '0.07'
 requires:
   Encode: '2.57'
   HTML::TreeBuilder: '5.03'
   HTML::TreeBuilder::XPath: '0.14'
-  IO::All: '0.59'
+  IO::All: '0.67'
   JSON: '2.9'
   LWP::RobotUA: '6.03'
-  List::Compare: '0.38'
+  List::Compare: '0.39'
   Moose: '2.12'
   MooseX::Privacy: '0.05'
+  Readonly: '2'
   Text::Trim: '1.02'
   perl: '5.006'
 resources:
   license: http://dev.perl.org/licenses/
-version: '0.06'
+version: '0.07'

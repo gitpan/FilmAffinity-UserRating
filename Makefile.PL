@@ -3,33 +3,33 @@ require 5.006;
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
+  'NAME' => 'FilmAffinity::UserRating',
+  'INSTALLDIRS' => 'site',
   'PL_FILES' => {},
+  'PREREQ_PM' => {
+                   'Encode' => '2.57',
+                   'File::Find::Rule' => '0.33',
+                   'File::Copy::Recursive' => '0.38',
+                   'Text::Trim' => '1.02',
+                   'Test::MockObject' => '1.2',
+                   'Test::LongString' => '0.15',
+                   'MooseX::Privacy' => '0.05',
+                   'JSON' => '2.9',
+                   'List::Compare' => '0.39',
+                   'HTML::TreeBuilder::XPath' => '0.14',
+                   'Test::More' => 0,
+                   'Test::JSON' => '0.11',
+                   'Moose' => '2.12',
+                   'LWP::RobotUA' => '6.03',
+                   'IO::All' => '0.67',
+                   'HTML::TreeBuilder' => '5.03',
+                   'Readonly' => '2'
+                 },
+  'VERSION_FROM' => 'lib/FilmAffinity/UserRating.pm',
   'EXE_FILES' => [
                    'bin/filmaffinity-get-all-info.pl',
                    'bin/filmaffinity-get-movie-info.pl',
                    'bin/filmaffinity-get-ratings.pl'
-                 ],
-  'PREREQ_PM' => {
-                   'Test::More' => 0,
-                   'Readonly' => '2',
-                   'MooseX::Privacy' => '0.05',
-                   'List::Compare' => '0.39',
-                   'File::Copy::Recursive' => '0.38',
-                   'Text::Trim' => '1.02',
-                   'Test::MockObject' => '1.2',
-                   'JSON' => '2.9',
-                   'File::Find::Rule' => '0.33',
-                   'HTML::TreeBuilder' => '5.03',
-                   'LWP::RobotUA' => '6.03',
-                   'Test::JSON' => '0.11',
-                   'IO::All' => '0.67',
-                   'Test::LongString' => '0.15',
-                   'HTML::TreeBuilder::XPath' => '0.14',
-                   'Encode' => '2.57',
-                   'Moose' => '2.12'
-                 },
-  'VERSION_FROM' => 'lib/FilmAffinity/UserRating.pm',
-  'INSTALLDIRS' => 'site',
-  'NAME' => 'FilmAffinity::UserRating'
+                 ]
 )
 ;

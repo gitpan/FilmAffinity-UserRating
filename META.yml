@@ -20,13 +20,13 @@ name: FilmAffinity-UserRating
 provides:
   FilmAffinity::Movie:
     file: lib/FilmAffinity/Movie.pm
-    version: '0.08'
+    version: '0.09'
   FilmAffinity::UserRating:
     file: lib/FilmAffinity/UserRating.pm
-    version: '0.08'
+    version: '0.09'
   FilmAffinity::Utils:
     file: lib/FilmAffinity/Utils.pm
-    version: '0.08'
+    version: '0.09'
 requires:
   Encode: '2.57'
   File::Copy::Recursive: '0.38'
@@ -43,4 +43,4 @@ requires:
   perl: '5.006'
 resources:
   license: http://dev.perl.org/licenses/
-version: '0.08'
+version: '0.09'

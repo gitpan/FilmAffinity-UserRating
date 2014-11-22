@@ -13,20 +13,20 @@ lib/FilmAffinity/UserRating.pm
 lib/FilmAffinity/Utils.pm
 Makefile.PL
 MANIFEST			This list of files
-META.json
-META.yml
 README
 README.md
 t/00-load.t
 t/01-parser-user.t
 t/02-mocksite.t
 t/03-parser-mocksite.t
+t/04-empty-mocksite.t
 t/10-utils-load.t
 t/11-demoronize.t
 t/12-tsv.t
 t/20-movie-load.t
 t/21-movie-basic.t
 t/22-movie-mocksite.t
+t/23-movie-empty.t
 t/boilerplate.t
 t/manifest.t
 t/MockSite.pm
@@ -56,3 +56,5 @@ t/resources/tsv/one-line.list
 t/resources/user-rating-sample.html
 t/resources/user-rating-short.html
 t/resources/user-rating-without-next.html
+META.yml
+META.json
